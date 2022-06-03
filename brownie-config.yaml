@@ -1,0 +1,26 @@
+autofetch_sources: True
+
+networks:
+  default: infura-fork
+
+dotenv: .env
+
+development:
+- cmd: ganache-cli
+  cmd_settings:
+    fork: infura
+    port: 8545
+  host: http://127.0.0.1
+  id: infura-fork
+  name: Ganache-CLI (Infura Fork)
+  timeout: 120
+
+live:
+- name: Ethereum
+  networks:
+  - chainid: 1
+    explorer: https://api.etherscan.io/api
+    host: https://mainnet.infura.io/v3/$WEB3_INFURA_PROJECT_ID
+    id: infura
+    multicall2: '0x5BA1e12693Dc8F9c48aAD8770482f4739bEeD696'
+    name: Mainnet (Infura)
